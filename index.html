@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Saintifik</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    <div class="calculator-container">
+        <!-- Bahagian Utama Kalkulator -->
+        <div class="calculator-main">
+            <!-- Paparan Skrin -->
+            <div class="display-panel">
+                <div class="status-bar">
+                    <div class="badges">
+                        <span id="angle-mode-display" class="badge badge-indigo">DEG</span>
+                        <span id="memory-indicator" class="badge badge-emerald hidden">M</span>
+                    </div>
+                    <div id="equation-display" class="equation-text"></div>
+                </div>
+                <div class="main-input-wrapper">
+                    <input type="text" id="main-display" readonly value="0">
+                </div>
+            </div>
+
+            <!-- Kekunci Pad -->
+            <div class="keypad-grid">
+                <!-- Baris 1 -->
+                <button onclick="toggleAngleMode()" id="btn-deg-rad" class="btn btn-control">DEG</button>
+                <button onclick="inputFunc('sin')" class="btn btn-func">sin</button>
+                <button onclick="inputFunc('cos')" class="btn btn-func">cos</button>
+                <button onclick="inputFunc('tan')" class="btn btn-func">tan</button>
+                <button onclick="clearAll()" class="btn btn-danger">AC</button>
+
+                <!-- Baris 2 -->
+                <button onclick="toggle2nd()" id="btn-2nd" class="btn btn-warning">2nd</button>
+                <button onclick="inputFunc('asin')" class="btn btn-func fn-2nd hidden">sin⁻¹</button>
+                <button onclick="inputFunc('sinh')" class="btn btn-func fn-1st">sinh</button>
+                <button onclick="inputFunc('acos')" class="btn btn-func fn-2nd hidden">cos⁻¹</button>
+                <button onclick="inputFunc('cosh')" class="btn btn-func fn-1st">cosh</button>
+                <button onclick="inputFunc('atan')" class="btn btn-func fn-2nd hidden">tan⁻¹</button>
+                <button onclick="inputFunc('tanh')" class="btn btn-func fn-1st">tanh</button>
+                <button onclick="deleteLast()" class="btn btn-amber">DEL</button>
+
+                <!-- Baris 3 -->
+                <button onclick="inputOperator('^')" class="btn btn-func">xʸ</button>
+                <button onclick="inputFunc('log')" class="btn btn-func">log</button>
+                <button onclick="inputFunc('ln')" class="btn btn-func">ln</button>
+                <button onclick="inputSymbol('(')" class="btn btn-func">(</button>
+                <button onclick="inputSymbol(')')" class="btn btn-func">)</button>
+
+                <!-- Baris 4 -->
+                <button onclick="inputFunc('sqrt')" class="btn btn-func">√x</button>
+                <button onclick="inputNum('7')" class="btn btn-num">7</button>
+                <button onclick="inputNum('8')" class="btn btn-num">8</button>
+                <button onclick="inputNum('9')" class="btn btn-num">9</button>
+                <button onclick="inputOperator('÷')" class="btn btn-op">÷</button>
+
+                <!-- Baris 5 -->
+                <button onclick="inputFunc('sqr')" class="btn btn-func">x²</button>
+                <button onclick="inputNum('4')" class="btn btn-num">4</button>
+                <button onclick="inputNum('5')" class="btn btn-num">5</button>
+                <button onclick="inputNum('6')" class="btn btn-num">6</button>
+                <button onclick="inputOperator('×')" class="btn btn-op">×</button>
+
+                <!-- Baris 6 -->
+                <button onclick="inputFunc('fact')" class="btn btn-func">n!</button>
+                <button onclick="inputNum('1')" class="btn btn-num">1</button>
+                <button onclick="inputNum('2')" class="btn btn-num">2</button>
+                <button onclick="inputNum('3')" class="btn btn-num">3</button>
+                <button onclick="inputOperator('-')" class="btn btn-op">−</button>
+
+                <!-- Baris 7 -->
+                <button onclick="inputConst('π')" class="btn btn-func">π</button>
+                <button onclick="inputConst('e')" class="btn btn-func">e</button>
+                <button onclick="inputNum('0')" class="btn btn-num">0</button>
+                <button onclick="inputDot()" class="btn btn-num">.</button>
+                <button onclick="inputOperator('+')" class="btn btn-op">+</button>
+            </div>
+
+            <!-- Memori & Butang Sama Dengan -->
+            <div class="memory-grid">
+                <button onclick="memoryClear()" class="btn btn-mem">MC</button>
+                <button onclick="memoryRecall()" class="btn btn-mem">MR</button>
+                <button onclick="memoryAdd()" class="btn btn-mem">M+</button>
+                <button onclick="memorySubtract()" class="btn btn-mem">M-</button>
+                <button onclick="calculate()" class="btn btn-equals">=</button>
+            </div>
+        </div>
+
+        <!-- Bahagian Sejarah Pengiraan -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> Sejarah</h3>
+                <button onclick="clearHistory()" class="btn-clear-history"><i class="fa-solid fa-trash"></i> Padam</button>
+            </div>
+            <div id="history-list" class="history-list">
+                <div class="empty-msg" id="empty-history-msg">Tiada rekod pengiraan lagi.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

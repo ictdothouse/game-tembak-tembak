@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #020617;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    background-color: rgba(15, 23, 42, 0.8);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid #1e293b;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1024px) {
+    .calculator-container {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.calculator-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Skrin Display */
+.display-panel {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    border-radius: 1rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badges {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-indigo {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.badge-emerald {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.equation-text {
+    color: #94a3b8;
+    font-family: monospace;
+    font-size: 0.875rem;
+    text-align: right;
+    width: 100%;
+}
+
+.main-input-wrapper input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: right;
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+/* Kekunci Pad Grid */
+.keypad-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-control { background: #1e293b; color: #818cf8; }
+.btn-func { background: rgba(30, 41, 59, 0.8); color: #e2e8f0; }
+.btn-num { background: #1e293b; color: #ffffff; font-size: 1.125rem; }
+.btn-op { background: rgba(79, 70, 229, 0.2); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.3); }
+.btn-danger { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+.btn-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.btn-warning { background: #1e293b; color: #fbbf24; }
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+.btn-mem { background: #1e293b; color: #94a3b8; }
+.btn-equals { background: #4f46e5; color: #ffffff; font-size: 1.25rem; }
+
+/* Panel Sejarah */
+.history-panel {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid #1e293b;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.btn-clear-history {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.btn-clear-history:hover { color: #fb7185; }
+.history-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.empty-msg { color: #64748b; text-align: center; font-style: italic; font-size: 0.75rem; padding: 2rem 0; }
+.hidden { display: none !important; }
